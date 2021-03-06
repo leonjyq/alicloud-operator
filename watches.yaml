@@ -1,0 +1,11 @@
+---
+# Use the 'create api' subcommand to add watches to this file.
+- version: v1alpha1
+  group: alibaba.me.leonj
+  kind: Credentials
+  role: credentials
+- version: v1alpha1
+  group: alibaba.me.leonj
+  kind: VPC
+  role: vpc
+# +kubebuilder:scaffold:watch

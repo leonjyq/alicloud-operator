@@ -1,0 +1,24 @@
+# permissions for end users to edit vpcs.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: vpc-editor-role
+rules:
+- apiGroups:
+  - alibaba.me.leonj
+  resources:
+  - vpcs
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - alibaba.me.leonj
+  resources:
+  - vpcs/status
+  verbs:
+  - get

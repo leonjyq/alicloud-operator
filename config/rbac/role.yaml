@@ -1,0 +1,74 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: manager-role
+rules:
+  ##
+  ## Base operator rules
+  ##
+  - apiGroups:
+      - ""
+    resources:
+      - secrets
+      - pods
+      - pods/exec
+      - pods/log
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - apps
+    resources:
+      - deployments
+      - daemonsets
+      - replicasets
+      - statefulsets
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  ##
+  ## Rules for alibaba.me.leonj/v1alpha1, Kind: Credentials
+  ##
+  - apiGroups:
+      - alibaba.me.leonj
+    resources:
+      - credentials
+      - credentials/status
+      - credentials/finalizers
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  ##
+  ## Rules for alibaba.me.leonj/v1alpha1, Kind: VPC
+  ##
+  - apiGroups:
+      - alibaba.me.leonj
+    resources:
+      - vpcs
+      - vpcs/status
+      - vpcs/finalizers
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+# +kubebuilder:scaffold:rules
